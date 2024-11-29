@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VintageTalk</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="resources/icons8-forum-80.png" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/b522fef9ba.js" crossorigin="anonymous"></script>
+
+    <!-- Daisy UI & Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="w-[95%] md:w-[80%] mx-auto">
+        <div class="navbar bg-base-100 my-5">
+            <div class="flex-1">
+                <a class="btn btn-ghost font-semibold text-xl md:text-4xl p-0">VintageTalk</a>
+            </div>
+            <div class="pt-3">
+                <div class="">
+                    <ul class="[&_li]:inline [&_li]:mx-[2px] md:[&_li]:mx-2 [&_li]:border [&_li]:rounded-3xl">
+                        <li class=" px-[8px] py-[8px]">
+                            <div class="tooltip">
+                                <i class="fa-solid fa-house"></i>
+                                <span class="tooltiptext">Home</span>
+                            </div>
+                        </li>
+
+                        <li class=" px-[8px] py-[8px]">
+                            <div class="tooltip">
+                                <i class="fa-solid fa-pen"></i>
+                                <span class="tooltiptext">Edit</span>
+                            </div>
+                        </li>
+
+                        <li class=" px-[7px] py-[8px]">
+                            <div class="tooltip">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span class="tooltiptext">Add</span>
+                            </div>
+                        </li>
+
+                        <li class=" px-[12px] py-[8px]">
+                            <div class="tooltip">
+                                <i class="fa-solid fa-flag"></i>
+                                <span class="tooltiptext">Pages</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="end md:ml-5">
+                    <a class="btn bg-blue-500 rounded-3xl text-white px-6">Sign In</a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- banner -->
+        <div class="banner-container">
+            <div class="sub-container">
+                <div
+                    class="sub-container-2 gap-5 text-center md:text-start p-5 md:p-8  lg:p-20 text-4xl md:text-4xl lg:text-5xl flex flex-col md:flex-row justify-around items-center">
+                    <div class="">
+                        <h1 class="text-white font-semibold font-primary mb-5">Welcome to the <br> <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-[#7478F1] to-[#343672]">Vintage</span>
+                            Talk</h1>
+                        <p class="font-primary text-[#ffffffcc] text-sm  lg:text-lg w-[70%] mx-auto md:mx-0">
+                            Where nostalgia thrives, connecting vintage enthusiasts worldwide in vibrant
+                            discussions and memories</p>
+                        <!-- search bar -->
+                        <div class="input bg-white input-bordered flex items-center gap-0 lg:gap-2 w-full :w-3/4 lg:w-3/4 lg:p-7 rounded-[50px] mt-8">
+                            <input id="search-field" type="text" class="grow" placeholder="Search here" />
+                            <button onclick="handleSearch()"
+                                    class="btn bg-[#797DFC] lg:text-[20px] text-white border-none font-bold rounded-[50px] 
+                                    ">Search
+                                </button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-white p-5 rounded-xl flex text-sm justify-between w-[250px]">
+                            <div class=" p-5">
+                                <ul class="text-start">
+                                    <li>Registered Users</li>
+                                    <li>Forum</li>
+                                    <li>Topics</li>
+                                    <li>Replies</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class=" p-5">
+                                    <ul>
+                                        <li>01</li>
+                                        <li>05</li>
+                                        <li>01</li>
+                                        <li>01</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+
+
+
+
+    <!-- Main -->
+    <main class="w-[95%] md:w-[80%] mx-auto">
+        <!-- Section Discuss -->
+        <section class="mt-10">
+            <div class="space-y-2">
+                <h1 class="text-3xl font-bold text-center">Let’s Discuss</h1>
+                <p class="font-secondary text-gray-400] text-xs lg:text-sm text-center">A platform for
+                    open dialogue, sharing ideas, and fostering meaningful conversations among diverse communities.</p>
+            </div>
+            <!-- loading dots div -->
+            <div class="mt-10">
+                <div id="loading-dots-div" class="text-center hidden">
+                    <span class="loading loading-dots loading-lg bg-[#797DFC]"></span>
+                </div>
+                <div class="loading-dots-div-when-loading text-center hidden">
+                    <span class="loading loading-dots loading-lg bg-[#797DFC]"></span>
+                </div>
+            </div>
+            <!-- Discuss Container -->
+            <div class="grid gap-5 grid-cols-1 md:grid-cols-2 mt-10">
+                <!-- post container -->
+                <div id="post-container" class="grid gap-5 grid-cols-1">
+                    <!-- Cards -->
+                    <div class="">
+                    </div>
+
+
+                </div>
+                <!-- title container -->
+                <div id="title-container" class="  bg-[#F3F3F4] shadow-xl p-5  rounded-xl ">
+                    <div class="flex justify-between mb-5">
+                        <div>
+                            <h1 class="font-bold text-lg">Title</h1>
+                        </div>
+                        <div id="clickCount" class="text-gray-500"><i
+                                class="fa-solid fa-check-double text-green-300"></i> Mark as read
+                            (<span id="count">0</span>)
+                        </div>
+                    </div>
+                    <!-- cards -->
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Section Join -->
+        <section class="mt-10">
+            <div
+                class="card card-side bg-base-100 shadow-xl justify-between items-center p-10 bg-[#12132D] flex-col md:flex-row">
+                <div class="card-body space-y-2">
+                    <h1 class="card-title text-white text-2xl">Join Our VintageTalk</h1>
+                    <p class="font-secondary text-gray-300 text-sm ">Become part of our community and engage in
+                        discussions, sharing, and connecting with others.</p>
+                    <div class="">
+                        <button class="btn btn-primary bg-[#797DFC] text-white border-none rounded-3xl">Registered
+                            Now</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="resources/joinforum.png" alt="Movie" />
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section latest Posts -->
+        <section class="mt-10">
+            <div class="space-y-2">
+                <h1 class="text-3xl font-bold text-center">Latest Posts</h1>
+                <p class="font-secondary text-gray-400] text-xs lg:text-sm text-center"> Stay updated with
+                    the newest content, discussions, and contributions on our platform</p>
+            </div>
+            <!-- loading dots-2 div -->
+            <div class="mt-10">
+                <div class="loading-dots2-div-when-loading text-center hidden">
+                    <span class="loading loading-dots loading-lg bg-[#797DFC]"></span>
+                </div>
+            </div>
+            <!-- Latest Posts Container -->
+            <div id="latest-post-container" class="grid mt-10 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- cards -->
+
+
+
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <!-- footer -->
+    <footer class="mt-10 footer footer-center p-10 bg-gray-300 text-black -content">
+
+        <h1 class="font-bold text-2xl">VintageTalk</h1>
+        <p class="font-secondary">
+            A vibrant online community celebrating nostalgia, discussing vintage culture, and sharing
+            retro-inspired creativity and memories</p>
+        <div class="grid grid-flow-col gap-4 [&_i]:text-2xl">
+            <a><i class="fa-brands fa-twitter"></i></a>
+            <a><i class="fa-brands fa-facebook"></i></a>
+            <a><i class="fa-brands fa-instagram"></i></a>
+            <a><i class="fa-brands fa-github"></i></a>
+        </div>
+        <hr class="bg-black border- w-full">
+        <p>&copy; All right reserved 2024</p>
+
+    </footer>
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
